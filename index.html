@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#1B3A5C;
@@ -61,7 +61,20 @@
     letter-spacing:-1px;
   }
   .hero h1 em{color:var(--orange);font-style:normal}
-  .hero .sub{font-size:20px;opacity:.85;margin-bottom:48px;font-weight:300}
+  .hero .sub{font-size:20px;opacity:.85;margin-bottom:40px;font-weight:300}
+  .hero-cta{margin-bottom:48px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .hero-cta .btn-primary{
+    display:inline-block;background:var(--orange);color:#fff;
+    padding:16px 36px;border-radius:50px;
+    font-weight:700;text-decoration:none;font-size:16px;
+    transition:all .2s;
+  }
+  .hero-cta .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(243,155,45,.4)}
+  .hero-cta .btn-link{
+    color:rgba(255,255,255,.75);font-size:15px;text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;
+  }
+  .hero-cta .btn-link:hover{color:#fff;border-color:#fff}
   .hero .meta{
     display:flex;gap:32px;flex-wrap:wrap;
     padding-top:32px;border-top:1px solid rgba(255,255,255,.15);
@@ -144,7 +157,7 @@
     border-radius:8px;font-size:15px;
   }
 
-  /* Why Sponsor box */
+  /* Sponsor box */
   .sponsor-box{
     margin-top:48px;background:var(--navy);color:#fff;
     padding:48px;border-radius:20px;
@@ -170,7 +183,7 @@
   .sample h4{font-size:17px;font-weight:700;line-height:1.5}
 
   /* Process */
-  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;margin-bottom:48px}
   .step{
     background:var(--card);border:1px solid var(--line);
     border-radius:12px;padding:24px 20px;position:relative;
@@ -182,25 +195,100 @@
   .step h4{font-size:15px;font-weight:700;margin-bottom:6px}
   .step p{font-size:13px;color:var(--muted)}
 
-  /* Contact */
-  .contact{
-    background:linear-gradient(135deg,var(--navy-deep),var(--navy));
-    color:#fff;text-align:center;padding:80px 24px;border-radius:24px;
-    margin-top:48px;
+  /* Apply Form */
+  .apply-wrap{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:24px;padding:48px;
   }
-  .contact h3{font-size:28px;font-weight:900;margin-bottom:16px}
-  .contact p{opacity:.85;margin-bottom:32px;font-size:16px}
-  .contact-info{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:16px}
-  .contact-info a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
-  .contact-info a:hover{border-color:var(--orange);color:var(--orange)}
-  .cta-btn{
-    display:inline-block;margin-top:32px;
+  .apply-wrap h3{
+    font-size:26px;font-weight:900;margin-bottom:8px;
+  }
+  .apply-wrap h3 em{color:var(--orange);font-style:normal}
+  .apply-wrap .apply-lead{color:var(--muted);margin-bottom:36px;font-size:15px}
+
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-field{display:flex;flex-direction:column;gap:8px}
+  .form-field.full{grid-column:1/-1}
+  .form-field label{
+    font-size:13px;font-weight:700;color:var(--text);
+    display:flex;align-items:center;gap:6px;
+  }
+  .form-field label .req{color:var(--orange);font-size:14px}
+  .form-field label .hint{color:var(--muted);font-weight:400;font-size:12px}
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    font-family:inherit;font-size:15px;
+    padding:14px 16px;border:1.5px solid var(--line);
+    border-radius:10px;background:#fff;color:var(--text);
+    transition:border-color .15s;
+    width:100%;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus{
+    outline:none;border-color:var(--orange);
+  }
+  .form-field textarea{resize:vertical;min-height:100px}
+
+  .tier-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .tier-pick label{
+    cursor:pointer;padding:16px 12px;border:1.5px solid var(--line);
+    border-radius:10px;text-align:center;background:#fff;
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    transition:all .15s;font-weight:500;
+  }
+  .tier-pick label:hover{border-color:var(--orange)}
+  .tier-pick input[type="radio"]{display:none}
+  .tier-pick label:has(input:checked){
+    border-color:var(--orange);background:#FFF8EC;
+  }
+  .tier-pick .pick-grade{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:1px}
+  .tier-pick .pick-name{font-size:16px;font-weight:900;color:var(--text)}
+  .tier-pick .pick-price{font-size:13px;color:var(--muted)}
+
+  .consent{
+    display:flex;gap:10px;align-items:flex-start;
+    padding:16px;background:var(--bg);border-radius:10px;
+    margin:8px 0 24px;font-size:13px;color:var(--muted);
+  }
+  .consent input{margin-top:3px;flex-shrink:0;accent-color:var(--orange)}
+  .consent label{cursor:pointer;line-height:1.6}
+
+  .submit-btn{
+    width:100%;padding:18px;border:none;
     background:var(--orange);color:#fff;
-    padding:18px 48px;border-radius:50px;
-    font-size:17px;font-weight:700;text-decoration:none;
-    transition:all .2s;
+    font-size:17px;font-weight:700;border-radius:12px;
+    cursor:pointer;transition:all .2s;font-family:inherit;
   }
-  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(243,155,45,.4)}
+  .submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(243,155,45,.4)}
+  .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+
+  .alt-channels{
+    display:flex;gap:16px;justify-content:center;align-items:center;
+    margin-top:24px;padding-top:24px;
+    border-top:1px solid var(--line);
+    flex-wrap:wrap;font-size:14px;color:var(--muted);
+  }
+  .alt-channels a{
+    color:var(--navy);text-decoration:none;font-weight:600;
+    border-bottom:1.5px solid var(--orange);padding-bottom:1px;
+  }
+  .alt-channels a:hover{color:var(--orange)}
+
+  .success-msg{
+    display:none;padding:48px 24px;text-align:center;
+    background:#FFF8EC;border-radius:16px;
+  }
+  .success-msg.show{display:block}
+  .success-msg .check{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--orange);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:32px;margin-bottom:16px;font-weight:700;
+  }
+  .success-msg h4{font-size:22px;font-weight:900;margin-bottom:8px}
+  .success-msg p{color:var(--muted)}
 
   /* Footer */
   footer{
@@ -226,8 +314,9 @@
     .stats{grid-template-columns:1fr}
     .process{grid-template-columns:1fr 1fr}
     .sponsor-box{padding:32px 24px}
-    .contact{padding:56px 24px}
-    .contact-info{flex-direction:column;gap:12px}
+    .apply-wrap{padding:32px 24px}
+    .form-row{grid-template-columns:1fr}
+    .tier-pick{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -239,6 +328,10 @@
     <div class="label">JEJU ECONOMY · FOUNDING SPONSOR</div>
     <h1>제주의 상권을<br><em>기록합니다.</em></h1>
     <p class="sub">디지털 경제매체 「제주경제」 창간 후원사 30곳을 모십니다.</p>
+    <div class="hero-cta">
+      <a href="#apply" class="btn-primary">후원 신청·문의 →</a>
+      <a href="#why" class="btn-link">제안서 자세히 보기</a>
+    </div>
     <div class="meta">
       <span><strong>창간 예정</strong>2026년 ○월</span>
       <span><strong>발행</strong>(주)○○</span>
@@ -249,7 +342,7 @@
 </header>
 
 <!-- WHY NOW -->
-<section>
+<section id="why">
   <div class="container">
     <h2>제주에는 종합지가 있습니다.<br><em>그러나 상권의 매체는 없습니다.</em></h2>
     <p class="lead">한라일보, 제민일보, 제주일보 — 오랜 역사의 종합지가 정치·사회·문화를 다룹니다. 그러나 자영업자, 소상공인, 창업 준비자, 부동산·관광 종사자의 시선에서 매일의 상권을 기록하는 매체는 비어 있습니다.<br><br>신메뉴가 나와도, 새 상가가 들어서도, 임대료가 출렁여도 — 그것을 모아 검색 가능한 형태로 남기는 곳이 없습니다. <strong>제주경제는 그 자리에서 시작합니다.</strong></p>
@@ -412,22 +505,22 @@
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- APPLY -->
 <section>
   <div class="container">
-    <h2>신청 절차</h2>
-    <p class="lead">문의부터 사이트 반영까지 평균 2주.</p>
+    <h2>신청 <em>절차</em></h2>
+    <p class="lead">아래 폼 작성 또는 전화·카톡 문의. 문의부터 사이트 반영까지 평균 2주.</p>
 
     <div class="process">
       <div class="step">
         <div class="n">STEP 01</div>
-        <h4>문의·검토</h4>
-        <p>본 페이지 하단 연락처로 문의</p>
+        <h4>문의·신청</h4>
+        <p>아래 폼 또는 전화로 문의</p>
       </div>
       <div class="step">
         <div class="n">STEP 02</div>
         <h4>약정서 작성</h4>
-        <p>등급 선택 후 1년 약정</p>
+        <p>등급 확정 후 1년 약정</p>
       </div>
       <div class="step">
         <div class="n">STEP 03</div>
@@ -441,14 +534,139 @@
       </div>
     </div>
 
-    <div class="contact">
-      <h3>함께해 주실 분을 찾습니다</h3>
-      <p>제주의 상권을 1년간 함께 기록하실 30곳을 모집합니다.</p>
-      <div class="contact-info">
-        <span>📞 <a href="tel:01000000000">010-0000-0000</a></span>
-        <span>📧 <a href="mailto:contact@jejueconomy.com">contact@jejueconomy.com</a></span>
+    <!-- APPLY FORM -->
+    <div class="apply-wrap" id="apply">
+      <h3>창간 후원 <em>신청·문의</em></h3>
+      <p class="apply-lead">관심 등급을 선택하시고 연락처를 남겨주시면 1영업일 내에 담당자가 연락드립니다.<br>신청서가 곧 약정은 아닙니다 — 부담 없이 문의 주세요.</p>
+
+      <form id="applyForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+        <!-- 등급 선택 -->
+        <div class="form-field full" style="margin-bottom:24px">
+          <label>관심 등급 <span class="req">*</span></label>
+          <div class="tier-pick">
+            <label>
+              <input type="radio" name="tier" value="다이아몬드" required>
+              <div class="pick-grade">DIAMOND</div>
+              <div class="pick-name">💎 다이아몬드</div>
+              <div class="pick-price">월 50만 원</div>
+            </label>
+            <label>
+              <input type="radio" name="tier" value="골드">
+              <div class="pick-grade">GOLD</div>
+              <div class="pick-name">🥇 골드</div>
+              <div class="pick-price">월 30만 원</div>
+            </label>
+            <label>
+              <input type="radio" name="tier" value="실버">
+              <div class="pick-grade">SILVER</div>
+              <div class="pick-name">🥈 실버</div>
+              <div class="pick-price">월 15만 원</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 회사명 / 담당자 -->
+        <div class="form-row">
+          <div class="form-field">
+            <label>회사·매장명 <span class="req">*</span></label>
+            <input type="text" name="company" required placeholder="예: 한라호텔">
+          </div>
+          <div class="form-field">
+            <label>담당자 성함 <span class="req">*</span></label>
+            <input type="text" name="name" required placeholder="홍길동">
+          </div>
+        </div>
+
+        <!-- 연락처 / 이메일 -->
+        <div class="form-row">
+          <div class="form-field">
+            <label>연락처 <span class="req">*</span></label>
+            <input type="tel" name="phone" required placeholder="010-0000-0000">
+          </div>
+          <div class="form-field">
+            <label>이메일</label>
+            <input type="email" name="email" placeholder="example@company.com">
+          </div>
+        </div>
+
+        <!-- 업종 / 지역 -->
+        <div class="form-row">
+          <div class="form-field">
+            <label>업종</label>
+            <select name="industry">
+              <option value="">선택해주세요</option>
+              <option>요식·카페</option>
+              <option>관광·숙박</option>
+              <option>부동산·중개</option>
+              <option>병의원·약국</option>
+              <option>법무·세무·회계</option>
+              <option>유통·소매</option>
+              <option>농수축산</option>
+              <option>제조·도매</option>
+              <option>교육·서비스</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>소재 지역</label>
+            <select name="region">
+              <option value="">선택해주세요</option>
+              <optgroup label="제주시">
+                <option>제주시 - 구도심</option>
+                <option>제주시 - 신제주(연동·노형)</option>
+                <option>제주시 - 애월</option>
+                <option>제주시 - 한림·한경</option>
+                <option>제주시 - 조천·구좌</option>
+              </optgroup>
+              <optgroup label="서귀포시">
+                <option>서귀포 - 시내</option>
+                <option>서귀포 - 중문</option>
+                <option>서귀포 - 대정·안덕</option>
+                <option>서귀포 - 남원</option>
+                <option>서귀포 - 표선</option>
+                <option>서귀포 - 성산</option>
+              </optgroup>
+              <option>기타</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 문의사항 -->
+        <div class="form-field full" style="margin-bottom:16px">
+          <label>문의사항 <span class="hint">(선택)</span></label>
+          <textarea name="message" placeholder="궁금하신 점, 협의하고 싶은 부분을 자유롭게 적어주세요."></textarea>
+        </div>
+
+        <!-- 개인정보 동의 -->
+        <div class="consent">
+          <input type="checkbox" id="agree" name="agree" required>
+          <label for="agree">
+            <strong>(필수)</strong> 후원 상담 목적의 개인정보 수집·이용에 동의합니다.<br>
+            수집 항목: 회사명·성함·연락처·이메일 / 보유 기간: 상담 종료 후 1년 / 동의 거부 시 상담이 어렵습니다.
+          </label>
+        </div>
+
+        <!-- Honeypot (스팸 방지) -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="[제주경제] 창간 후원 신청">
+
+        <button type="submit" class="submit-btn" id="submitBtn">신청·문의 보내기</button>
+
+        <div class="alt-channels">
+          <span>다른 방법으로 문의:</span>
+          <a href="tel:01000000000">📞 010-0000-0000</a>
+          <a href="https://pf.kakao.com/_xxxxxxx" target="_blank" rel="noopener">💬 카카오톡 채널</a>
+          <a href="mailto:contact@jejueconomy.com">📧 이메일</a>
+        </div>
+      </form>
+
+      <!-- 제출 완료 메시지 -->
+      <div class="success-msg" id="successMsg">
+        <div class="check">✓</div>
+        <h4>신청이 접수되었습니다</h4>
+        <p>1영업일 내에 담당자가 연락드리겠습니다.<br>제주경제 창간에 함께해 주셔서 감사합니다.</p>
       </div>
-      <a href="mailto:contact@jejueconomy.com?subject=제주경제 창간 후원 문의" class="cta-btn">후원 문의하기</a>
     </div>
   </div>
 </section>
@@ -458,6 +676,38 @@
   <p>본 제안서는 「제주경제」 창간 후원사 모집을 위한 자료입니다.<br>
   © 2026 (주)○○. All rights reserved.</p>
 </footer>
+
+<script>
+  const form = document.getElementById('applyForm');
+  const successMsg = document.getElementById('successMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        successMsg.classList.add('show');
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('전송 실패');
+      }
+    } catch (err) {
+      alert('전송 중 오류가 발생했습니다. 전화(010-0000-0000)로 문의 주세요.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = '신청·문의 보내기';
+    }
+  });
+</script>
 
 </body>
 </html>
